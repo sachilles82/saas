@@ -41,6 +41,15 @@
 {{--                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>--}}
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                             <a href="{{ route('categories.edit', $category) }}" class="text-indigo-600 hover:text-indigo-900"> {{ __('Edit') }}<span class="sr-only"></span></a>
+
+                                            <form action="{{ route('categories.destroy', $category) }}" method="POST" onsubmit="return confirm('Are you sure?')" style="display: inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <x-danger-button class="text-indigo-600 hover:text-indigo-900" type="submit">
+                                                    Delete
+                                                </x-danger-button>
+                                            </form>
+
                                         </td>
 {{--                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">--}}
 {{--                                            <a href="{{ route('categories.show', $category) }}" class="text-indigo-600 hover:text-indigo-900"> {{ __('View') }}<span class="sr-only"></span></a>--}}
